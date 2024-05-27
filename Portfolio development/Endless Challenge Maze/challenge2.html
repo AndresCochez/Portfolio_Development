@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #87A482;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer {
+            background-color: #87A482;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .back-btn {
+            padding: 5px 10px;
+            background-color: #0F3E1F;
+            color: #fff;
+            border: 1px solid #0F3E1F;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #87A482;
+            border: 1px solid #0F3E1F;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .canvas {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #0F3E1F;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #question {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #feedback {
+            font-size: 16px;
+            color: #0F3E1F;
+            margin-top: 20px;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        #start-btn {
+            padding: 10px 20px;
+            background-color: #0F3E1F;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        #start-btn:hover {
+            background-color: #87A482;
+        }
+
+        ol {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="back-btn" onclick="window.location.href='index.html'">Terug</button>
+        <h1>Challenge 2</h1>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1>Welkom bij het Track Your Body spel!</h1>
+            <p>
+                Dit is een leuk spel waarbij je punten kunt verdienen door met je neus (Bloem) op objecten (Bijen) te bewegen die op het scherm verschijnen. Volg deze eenvoudige stappen om te beginnen:
+            </p>
+            <ol>
+                <li>Zorg ervoor dat je camera is ingeschakeld, zodat het spel goed werkt.</li>
+                <li>Klik op "Start Game" om het spel te beginnen.</li>
+                <li>Gebruik je neus om de objecten op het scherm te volgen en punten te verdienen.</li>
+                <li>Je hebt 30 seconden om zo veel mogelijk punten te verdienen.</li>
+                <li>Als de tijd om is, zie je je score en kun je op "Restart" klikken om het spel opnieuw te starten.</li>
+            </ol>
+            <p>
+                Veel plezier en succes!
+            </p>
+        </div>
+        <iframe class="canvas" src="Bee-Flower-Game.html" width="800px" height="600px" frameborder="0"></iframe>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Andres Cochez</p>
+    </footer>
+</body>
+</html>

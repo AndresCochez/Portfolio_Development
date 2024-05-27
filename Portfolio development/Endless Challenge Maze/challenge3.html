@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #87A482;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer {
+            background-color: #87A482;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .back-btn {
+            padding: 5px 10px;
+            background-color: #0F3E1F;
+            color: #fff;
+            border: 1px solid #0F3E1F;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #87A482;
+            border: 1px solid #0F3E1F;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #webcam {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #0F3E1F;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #canvas {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #0F3E1F;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #capture {
+            padding: 10px 20px;
+            background-color: #0F3E1F;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #capture:hover {
+            background-color: #87A482;
+        }
+
+        #prediction {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        ol {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="back-btn" onclick="window.location.href='index.html'">Terug</button>
+        <h1>Challenge 3</h1>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1>Welkom bij de Foto Herkennings Generator!</h1>
+            <p>
+                Dit is een interactieve app waarbij je een foto kunt nemen en vervolgens objecten in de foto kunt laten herkennen. Volg deze eenvoudige stappen om te beginnen:
+            </p>
+            <ol>
+                <li>Zorg ervoor dat je toestemming hebt gegeven om je camera te gebruiken, zodat je een foto kunt nemen.</li>
+                <li>Klik op "Neem Foto" om een foto te maken.</li>
+                <li>Je krijgt direct feedback over welke objecten zijn geïdentificeerd in de foto.</li>
+            </ol>
+            <p>
+                Veel plezier en succes!
+            </p>
+        </div>
+        <video id="webcam" autoplay playsinline width="640" height="480"></video>
+        <button id="capture">Neem Foto</button>
+        <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+        <p id="prediction"></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Andres Cochez</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/webcam-easy@1.0.5/dist/webcam-easy.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="JS/challenge3.js"></script>
+</body>
+</html>

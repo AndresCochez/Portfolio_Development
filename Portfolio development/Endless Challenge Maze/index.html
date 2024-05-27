@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      background-color: #87A482;
+    }
+
+    .header-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .jolly-lodger-regular {
+      font-family: "Jolly Lodger", system-ui;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 70px;
+      color: #0F3E1F;
+      margin-top: -1px;
+    }
+
+    p {
+      font-family: "Jolly Lodger", system-ui;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      color: #0F3E1F;
+    }
+
+    .maze {
+      display: grid;
+      grid-template-columns: repeat(15, 30px);
+      grid-template-rows: repeat(15, 30px);
+      border: 1px solid #0F3E1F;
+      margin-top: -40px;
+    }
+
+    .cell {
+      width: 30px;
+      height: 30px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+    }
+
+    .wall {
+      background-color: #0F3E1F;
+    }
+
+    .ball {
+      width: 15px;
+      height: 15px;
+      background-color: #C91D1D;
+      border-radius: 50%;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header-container">
+    <h1 class="jolly-lodger-regular">Endless Portfolio Maze</h1>
+  </div>
+  <div class="maze" id="maze"></div>
+  <div class="ball" id="ball"></div>
+  <p>*Gebruik de pijltoetsen om naar de challenges te bewegen!</p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const maze = document.getElementById("maze");
+      const ball = document.getElementById("ball");
+
+      const mazeSize = 15;
+      const pattern = [
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 1, 0, 0, 1,
+        1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1,
+        1, 0, 1, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1,
+        1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1,
+        1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1,
+        1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1,
+        1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1,
+        1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1,
+        1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1,
+        1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1,
+        1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1,
+        1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 5, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+      ];
+
+      let ballPosition = Math.floor(mazeSize * (mazeSize / 2));
+
+      for (let i = 0; i < mazeSize * mazeSize; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        if (pattern[i] === 1) {
+          cell.classList.add("wall");
+        } else if (pattern[i] === 2) {
+          cell.innerText = "1";
+        }
+        else if (pattern[i] === 3) {
+          cell.innerText = "2";
+        }
+        else if (pattern[i] === 4) {
+          cell.innerText = "3";
+        }
+        else if (pattern[i] === 5) {
+          cell.innerText = "4";
+        }
+        else if (pattern[i] === 6) {
+          cell.innerText = "5";
+        }
+        maze.appendChild(cell);
+      }
+
+      function setInitialBallPosition() {
+        ball.style.left = `${maze.children[ballPosition].offsetLeft + 7.5}px`;
+        ball.style.top = `${maze.children[ballPosition].offsetTop + 7.5}px`;
+      }
+
+      setInitialBallPosition();
+
+      window.addEventListener("resize", setInitialBallPosition);
+
+      document.addEventListener("keydown", e => {
+        let newPosition = ballPosition;
+
+        switch (e.key) {
+          case "ArrowUp":
+            newPosition -= mazeSize;
+            break;
+          case "ArrowDown":
+            newPosition += mazeSize;
+            break;
+          case "ArrowLeft":
+            newPosition -= 1;
+            break;
+          case "ArrowRight":
+            newPosition += 1;
+            break;
+        }
+
+        if (!maze.children[newPosition] || !maze.children[newPosition].classList.contains("wall")) {
+          ballPosition = newPosition;
+          ball.style.left = `${maze.children[newPosition].offsetLeft + 7.5}px`;
+          ball.style.top = `${maze.children[newPosition].offsetTop + 7.5}px`;
+
+          const currentCell = maze.children[newPosition];
+          const cellText = currentCell.innerText;
+          if (!isNaN(cellText) && parseInt(cellText) >= 1) {
+            window.location.href = `challenge${cellText}.html`;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
