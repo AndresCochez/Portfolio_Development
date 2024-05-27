@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Odyssey Labyrinth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #maze-container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #0F3E1F;
+            border-radius: 8px;
+            display: inline-block;
+            text-align: left;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #maze {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 2px solid #0F3E1F;
+            background-color: #000;
+        }
+
+        #spaceship {
+            width: 20px;
+            height: 20px;
+            background-color: #66fcf1;
+            border-radius: 50%;
+            position: absolute;
+            top: 190px; 
+            left: 190px; 
+        }
+
+        .wall {
+            position: absolute;
+            background-color: #8892b0;
+        }
+
+        .goal {
+            position: absolute;
+            background-color: #45a29e;
+            width: 40px;
+            height: 40px;
+        }
+
+        ol {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+    
+    <main>
+        <h1>Welkom bij de Device Orientation Game!</h1>
+        <p>
+            Dit is een interactieve game waarbij je je mobiele apparaat gebruikt om de bal naar het gat te navigeren. Volg deze eenvoudige stappen om te beginnen:
+        </p>
+        <ol>
+            <li>Zorg ervoor dat je toestel de juiste oriëntatie heeft, met het display omhoog voor de beste navigatie.</li>
+            <li>Gebruik je apparaat om de bal naar het gat te bewegen.</li>
+            <li>Je wint als je het gat bereikt.</li>
+        </ol>
+        <p>
+            Veel plezier en succes!
+        </p>
+        <div id="maze-container">
+            <div id="maze">
+                <div id="spaceship"></div>
+                <div class="goal" style="top: 60px; left: 340px;"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
